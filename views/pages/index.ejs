@@ -1,0 +1,45 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+<header>
+    <% include ../partials/header %>
+</header>
+
+<main>
+    <%if (isConnected===1) { %>
+        <h1>Campaigns disponible</h1>
+
+        <div class="container">
+            <div class="row">
+                <% broadcastAvail.forEach(function(ticket, index) { %>
+                <div class="col-md-4">
+                    <h5><B><%= ticket.data.subject+' - du '+ ticket.data.custom_fields.cf_broad_begindate
+                        +' au '+ ticket.data.custom_fields.cf_broad_enddate  %></B></h5>
+                    <p><% ticket.data.custom_fields.cf_broad_enddate  %></p>
+                    <a href="/subscription" class="btn btn-primary">Souscrire maintenant</a>
+                </div>
+                <% }); %>
+            </div>
+        </div>
+
+        
+    <% } else { %>
+        <div class="jumbotron">
+            <h1>TOOL App</h1>
+            <p>Welcome to TOOL, the tool for CGP</p>
+        </div>
+    <% } %>
+</main>
+
+<footer style="padding-top:30px">
+    <% include ../partials/footer %>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!-- views/partials/header.ejs -->
+
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+        <%if (isConnected===0) { %>
+            <a class="navbar-brand" href="\">FINLIVE</a>
+        <% } else {  %>
+            <a class="navbar-brand" href="\" style="padding: 0px;">
+            <img src="/images/logo.png" height=50>
+            </a>
+        <% } %>
+        </div>
+        <center>
+            <div class="navbar-collapse collapse" id="navbar-main">
+                <ul class="nav navbar-nav">
+                    <li><a href="\">Home</a>
+                    </li>
+                    <li><a href="\register">Register</a>
+                    </li>
+                    <li><a href="\createticket">Ticket</a>
+                    </li>
+                    <li><a href="\trade">Trade</a>
+                    </li>
+                    <li><a href="\reply">Reply</a>
+                    </li>
+                    <li><a href="\note">Note</a>
+                    </li>
+                    <li><a href="\broadcast">Broadcast</a>
+                    </li>
+                    <li><a href="\subscription">Subscription</a>
+                    </li>
+                </ul>
+                
+                <%if (isConnected===1) { %>
+                    <ul class="nav navbar-nav" style="float: right">
+                        <li class="navbar-brand" href="#"><%= email %></li>
+                        <form class="navbar-form navbar-right" role="search" action="/logout" method="POST">
+                            <button type="submit" class="btn btn-default">Log out</button>
+                        </form>
+                    </ul>
+                <% } else{ %> 
+                    <form class="navbar-form navbar-right" role="search" action="/" method="POST">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="username" placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="password" placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn btn-default">Sign In</button>
+                    </form>
+                <% } %>
+            </div>
+        </center>
+    </div>
+</div>

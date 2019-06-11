@@ -1,0 +1,42 @@
+<!-- views/pages/register.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+<header>
+    <% include ../partials/header %>
+</header>
+
+<main>
+
+    <div class="container">
+        <h3>Expert can Add a Note</h3>
+        <form class="" role="search" action="/createreply" method="POST">
+            <div class="form-group">
+                <label for="comment">Reply:</label>
+                <textarea class="form-control" rows="5" id="body" name="body"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="comment">Ticket:</label>
+                <select class="form-control" id="campaign" name="idTicket">
+                    <% allticketuser.forEach(function(ticket, index) { %>
+                        <option value="<%= index %>"><%= ticket.data.subject %></option>
+                    <% }); %>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-default">Add Comment</button>
+        </form>
+    </div>
+
+</main>
+
+<footer>
+    <% include ../partials/footer %>
+</footer>
+
+</body>
+</html>

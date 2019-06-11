@@ -1,0 +1,91 @@
+<!-- views/pages/register.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+<header>
+    <% include ../partials/header %>
+</header>
+
+<main>
+
+<div class="container">
+<h3>Création PHOENIX</h3>
+
+<form class="" role="search" action="/sendorder" method="POST">
+    <input type="hidden" id="type" name="type" value="Création Phoenix">
+    <input type="hidden" id="subject" name="subject" value="Création PHOENIX">
+    <input type="hidden" id="department" name="department" value="FIN">
+    <div class="form-group">
+        <input type="text" class="form-control" name="cf_nominal" placeholder="Nominal">
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" name="cf_underlying" placeholder="Underlying">
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" name="cf_yield" placeholder="Yield">
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" name="cf_maturity" placeholder="Maturity">
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" name="cf_ratio" placeholder="Ratio">
+    </div>
+    <div class="form-group">
+        <label for="comment">Option de campagne:</label>
+        <select class="form-control" id="campaign" name="cpg_choice">
+            <option value="Garder Privé">Garder Privé</option>
+            <option value="Proposer">Proposer</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="comment">Commentaire:</label>
+        <textarea class="form-control" rows="5" id="descript" name="descript"></textarea>
+    </div>
+    <button type="submit" class="btn btn-danger">Trade</button>
+</form>
+</div>
+
+<div class="container" style="margin-top: 30px">
+    <h3>Création AUTOCALL</h3>
+    
+    <form class="" role="search" action="/sendorder" method="POST">
+        <input type="hidden" id="type" name="type" value="Création Autocall">
+        <input type="hidden" id="subject" name="subject" value="Création AUTOCALL">
+        <input type="hidden" id="department" name="department" value="FIN">
+        <div class="form-group">
+            <input type="text" class="form-control" name="cf_nominal" placeholder="Nominal">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="cf_underlying" placeholder="Underlying">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="cf_maturity" placeholder="Maturity">
+        </div>
+        <div class="form-group">
+                <label for="comment">Option de campagne:</label>
+                <select class="form-control" id="campaign" name="cpg_choice">
+                    <option value="Garder Privé">Garder Privé</option>
+                    <option value="Proposer">Proposer</option>
+                </select>
+        </div>
+        <div class="form-group">
+            <label for="comment">Commentaire:</label>
+            <textarea class="form-control" rows="5" id="descript" name="descript"></textarea>
+        </div>
+        <button type="submit" class="btn btn-danger">Trade</button>
+    </form>
+</div>
+
+</main>
+
+<footer>
+    <% include ../partials/footer %>
+</footer>
+
+</body>
+</html>

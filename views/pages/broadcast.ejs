@@ -1,0 +1,73 @@
+<!-- views/pages/register.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+<header>
+    <% include ../partials/header %>
+</header>
+
+<main>
+
+    <%if (supervisor=== true) { %>
+    <div class="container">
+        <h3>Campaign to all members of your organization</h3>
+        <form class="" role="search" action="/broadcast" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="text" class="form-control" name="subject" placeholder="Titre de la campagne">
+            </div>
+            <input type="hidden" id="department" name="department" value="FIN">
+            <input type="hidden" id="department" name="cf_type" value="Produit structuré">
+            <input type="hidden" id="department" name="cf_soustype" value="Appel Public à l'épargne">
+            <div class="form-group">
+                <label for="comment">Produit:</label>
+                <select class="form-control" id="campaign" name="cf_identifiant_produit">
+                    <% broadcastTicket.forEach(function(ticket, index) { %>
+                        <option value="<%= ticket.id %>"><%= ticket.data.subject+' - du '+ ticket.data.custom_fields.cf_cpg_begindate
+                           +' au '+ ticket.data.custom_fields.cf_cpg_enddate  %></option>
+                    <% }); %>
+                </select>
+            </div>
+
+            <div class="form-group">
+                    <input type="text" class="form-control" name="cf_montant" placeholder="Montant de collecte">
+                </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="cf_broad_begindate" placeholder="Date de début">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="cf_broad_enddate" placeholder="Date de fin">
+            </div>
+            <div class="form-group">
+                    <label for="comment">Message à broadcaster à vos membres:</label>
+                    <textarea class="form-control" rows="3" id="descript" name="cf_message"></textarea>
+            </div>
+            <div class="form-group">
+                    <label for="comment">Notes privées:</label>
+                    <textarea class="form-control" rows="3" id="descript" name="cf_notes_prives"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="comment">Notes à l'attention de Finlive:</label>
+                <textarea class="form-control" rows="3" id="descript" name="descript"></textarea>
+            </div>
+            <button type="submit" class="btn btn-default">Broadcast</button>
+        </form>
+    </div>
+    <% } else{ %> 
+        <div class="container">
+                <h3>You can't broadcast because your are not supervisor</h3>
+        </div>
+    <% } %> 
+
+</main>
+
+<footer>
+    <% include ../partials/footer %>
+</footer>
+
+</body>
+</html>

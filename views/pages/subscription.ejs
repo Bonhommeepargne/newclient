@@ -1,0 +1,40 @@
+<!-- views/pages/register.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+<header>
+    <% include ../partials/header %>
+</header>
+
+<main>
+
+    <div class="container">
+        <h3>Subscribe Campaign</h3>
+        <form class="" role="search" action="/subscribe" method="POST">
+            <div class="form-group">
+                <label for="comment">Campaign name</label>
+                <select class="form-control" id="campaign" name="idTicketCampaign">
+                        <option value="1">Autocall Septembre 2028</option>
+                        <option value="2">Phoénix Septembre 2021</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="amount" placeholder="Montant en €">
+            </div>
+            <button type="submit" class="btn btn-success">Subscribe</button>
+        </form>
+    </div>
+
+</main>
+
+<footer>
+    <% include ../partials/footer %>
+</footer>
+
+</body>
+</html>
